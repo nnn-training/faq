@@ -127,7 +127,7 @@ Ethernet                  ethernet  Realtek PCIe GbE Family Controller
 
 ### 原因
 
-macOS において iTerm (使っているターミナルアプリ)に通信するための権限がない場合に、`multipass shell linux-study` を実行すると、以下のようなエラーが出ることがあります。
+macOS Sequoia 15 以降において iTerm (使っているターミナルアプリ)に通信するための権限がない場合に、`multipass shell linux-study` を実行すると、以下のようなエラーが出ることがあります。
 
 ```sh
 shell failed: ssh connection failed: 'Failed to connect: No route to host'
