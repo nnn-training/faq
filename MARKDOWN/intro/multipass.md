@@ -11,6 +11,7 @@ title: Multipass関連のトラブル
 - [(2) Microsoft Hyper-V が『Unavailable on Home edition」が選択できない](#2)
 - [(3) 「指定されたファイルが見つかりません」というエラーが出る](#3)
 - [(4) `multipass networks` の出力結果が文字化けする](#4)
+- [(5) `multipass shell` コマンドを実行すると `shell failed: ssh connection failed: 'Failed to connect: No route to host'` というエラーが出る場合](#5)
 
 ---
 
@@ -121,3 +122,25 @@ Ethernet                  ethernet  Realtek PCIe GbE Family Controller
 ```
 
 これで設定は完了しました。
+
+## macOS にて `multipass shell` コマンドを実行すると `shell failed: ssh connection failed: 'Failed to connect: No route to host'` というエラーが出る場合 <a id="5"></a>
+
+### 原因
+
+macOS Sequoia 15 以降において iTerm (使っているターミナルアプリ)に通信するための権限がない場合に、`multipass shell linux-study` を実行すると、以下のようなエラーが出ることがあります。
+
+```sh
+shell failed: ssh connection failed: 'Failed to connect: No route to host'
+```
+
+### 対応方法
+
+この場合は iTerm (もしくはお使いのターミナルアプリ)に通信するための権限を与えることで解決します。
+
+システム設定を開き、「セキュリティとプライバシー」>「ローカルネットワーク」を選択し、表示されたリストから iTerm を見つけ、トグルボタンをオンにして権限を与えてください。
+
+以下の画像のように、左側に iTerm の名前があり、その右側にトグルボタンがあるはずです。
+
+![iTerm にローカルネットワーク上のデバイスと通信するための権限を与えるために、トグルボタンをオンにする](./images/macos_setting_iterm.png)
+
+トグルをオンにして、iTerm に権限を与えたら再度、 `multipass shell linux-study` を実行すると、正常に接続できるようになるはずです。
