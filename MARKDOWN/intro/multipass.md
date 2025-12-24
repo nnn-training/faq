@@ -12,6 +12,7 @@ title: Multipass関連のトラブル
 - [(3) 「指定されたファイルが見つかりません」というエラーが出る](#3)
 - [(4) `multipass networks` の出力結果が文字化けする](#4)
 - [(5) `multipass shell` コマンドを実行すると `shell failed: ssh connection failed: 'Failed to connect: No route to host'` というエラーが出る場合](#5)
+- [(6) Windows で `multipass` コマンドを実行しても反応がない](#6)
 
 ---
 
@@ -144,3 +145,9 @@ shell failed: ssh connection failed: 'Failed to connect: No route to host'
 ![iTerm にローカルネットワーク上のデバイスと通信するための権限を与えるために、トグルボタンをオンにする](./images/macos_setting_iterm.png)
 
 トグルをオンにして、iTerm に権限を与えたら再度、 `multipass shell linux-study` を実行すると、正常に接続できるようになるはずです。
+
+## Windows で `multipass` コマンドを実行しても反応がない <a id="6"></a>
+
+Windows で `multipass find` や `multipass launch` などのコマンドを実行しても反応がなく、エラーや警告も一切出力されていない場合は PC の再起動をお試しください。
+
+なお、再起動の際に Windows Update が走った場合は改めて再起動してください。
