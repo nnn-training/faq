@@ -7,7 +7,7 @@ require('dotenv').config();
 const { resolve } = require('path');
 const CopyFilePlugin = require('copy-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
-
+const basePath = process.env.NEXT_PUBLIC_GITHUB_PAGES ? '/faq' : '';
 
 module.exports = {
   webpack(config) {
@@ -51,22 +51,8 @@ module.exports = {
     )
     return config;
   },
-  assetPrefix: process.env.NEXT_PUBLIC_GITHUB_PAGES ?
-    '/faq'
-    :
-    ''
-  ,
-  basePath: process.env.NEXT_PUBLIC_GITHUB_PAGES ?
-    '/faq'
-    :
-    ''
-  ,
-  publicRuntimeConfig: {
-    basePath: process.env.NEXT_PUBLIC_GITHUB_PAGES ?
-      '/faq'
-      :
-      ''
-  },
+  assetPrefix: basePath,
+  basePath: basePath,
   trailingSlash: true,
   output: 'export',
 };
