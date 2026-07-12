@@ -1,9 +1,8 @@
-import Layout from '../components/Layout';
+import Layout from '@/components/Layout';
 import Link from 'next/link';
-import Card from '../components/Card';
-import Image from 'next/image';
+import Card from '@/components/Card';
 
-const TopPage = () => {
+export default function TopPage() {
   return (
     <Layout>
       <main className="px-5 bg-blue-50 pt-5 pb-20">
@@ -138,5 +137,3 @@ const TopPage = () => {
     </Layout >
   )
 }
-
-export default TopPage;
