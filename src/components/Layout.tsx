@@ -1,7 +1,4 @@
-// TODO: AppRouter 移行後、header / footer コンポーネント化する？
-
 import { BASE_PATH } from '@/lib/config';
-import Head from 'next/head'
 import Link from 'next/link';
 
 type Props = {
