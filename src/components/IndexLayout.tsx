@@ -1,12 +1,8 @@
 import Layout from './Layout';
 import Card from './Card';
 import Link from 'next/link';
+import type { PostData } from '@/lib/api';
 
-type PostData = {
-  date: string;
-  title: string;
-  path: string;
-}
 type Props = {
   course: string;
   posts: PostData[];
