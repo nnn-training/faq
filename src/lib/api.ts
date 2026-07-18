@@ -47,11 +47,11 @@ export const getPostBySlug = (slugArray: string[], fields: (keyof PostSummary)[]
  * @returns 'MARKDOWN/'以下の全ファイルの配列
  */
 export const getAllPosts = () => {
-  const entries = globSync(`${postsPrefix}/**/*.md`)
+  const entries = globSync(`${postsPrefix}/**/*.md`);
   return entries
     .map((file) => file.replace(/\\/g, '/')) // 'MARKDOWN\\aaa\\bbb' -> 'MARKDOWN/aaa/bbb'
     .map((file) => file.replace(`${postsPrefix}`, '')) 
-    .map((slug) => (slug as string).replace(/\.md$/, '').split('/'))
+    .map((slug) => slug.replace(/\.md$/, '').split('/'));
 }
 
 /**

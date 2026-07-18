@@ -1,9 +1,9 @@
 import { getPostBySlug, getAllPosts } from '@/lib/api'
 import { remark } from 'remark'
 import remarkHtml from 'remark-html'
-import { notFound } from 'next/navigation'
 import Layout from '@/components/Layout'
 import Highlight from '@/components/Highlight'
+import { notFound } from 'next/navigation'
 import 'github-markdown-css'
 
 type Params = {
@@ -13,19 +13,15 @@ type Params = {
 }
 
 export default async function Post({ params }: Params) {
-  // TODO: Next 16 以降 params は非同期
+  const { slug } = await params
 
-  const post = getPostBySlug(params.slug, [
+  const post = getPostBySlug(slug, [
     'date',
     'title',
     'content',
   ])
 
-  if (!post) {
-    notFound();
-  }
-
-  const content = await markdownToHtml((post.content as string) || '', params.slug[0] as string)
+  const content = await markdownToHtml((post.content as string) || '', slug[0] as string)
 
   return (
     <>
@@ -50,10 +46,18 @@ const markdownToHtml = async (markdown: string, topSlug: string) => {
 }
 
 export async function generateMetadata({ params }: Params) {
-  const post = getPostBySlug(params.slug, ['title']);
-  return {
-    title: `${post.title} | FAQ`
-  };
+  const { slug } = await params;
+
+  try {
+    const post = getPostBySlug(slug, ['title']);
+    return {
+      title: `${post.title} | FAQ`
+    };
+  } catch (error) {
+        return {
+      title: 'FAQ'
+    };
+  }
 }
 
 export const generateStaticParams = async () => {
