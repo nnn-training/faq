@@ -1,7 +1,15 @@
 import '@/styles/globals.css';
+import { Noto_Sans_JP } from 'next/font/google';
 
 import { BASE_PATH } from '@/lib/config';
 import type { Metadata, Viewport } from 'next';
+
+const notoSansJp = Noto_Sans_JP({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['sans-serif'],
+});
 
 export const metadata: Metadata = {
   title: 'FAQ・トラブルシューティング - ZEN Study プログラミングコース',
@@ -22,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body className={notoSansJp.className}>{children}</body>
     </html>
   )
 }
