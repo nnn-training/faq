@@ -5,27 +5,24 @@
     "dev": "next dev",
     "build": "node scripts/copyImages.js && next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "copy-webpack-plugin": "^11.0.0",
     "dotenv": "^10.0.0",
-    "eslint": "^8.54.0",
-    "eslint-config-next": "^15.5.20",
-    "fs": "^0.0.1-security",
     "github-markdown-css": "^4.0.0",
     "glob": "^13.0.6",
     "gray-matter": "^4.0.3",
-    "grob": "^1.0.0",
     "highlight.js": "^11.0.1",
     "next": "^16.2.10",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "write-file-webpack-plugin": "^4.5.1"
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
+    "eslint": "9",
+    "eslint-config-next": "16.2.10",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^12.12.21",
     "@types/react": "^19.2.17",
