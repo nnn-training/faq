@@ -1,12 +1,10 @@
 import { BASE_PATH } from '@/lib/config';
 import Link from 'next/link';
 
-type Props = {
-  title?: string
-}
-
-const Layout: React.FunctionComponent<Props> = ({
+const Layout = ({
   children,
+}: {
+  children: React.ReactNode
 }) => (
   <div>
     <header className="px-5 ">

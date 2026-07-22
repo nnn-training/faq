@@ -3,8 +3,8 @@ import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import Layout from '@/components/Layout'
 import Highlight from '@/components/Highlight'
-import { notFound } from 'next/navigation'
 import 'github-markdown-css'
+import type { Metadata } from 'next'
 
 type Params = {
   params: {
@@ -45,7 +45,9 @@ const markdownToHtml = async (markdown: string, topSlug: string) => {
   return htmlResult.toString()
 }
 
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata(
+  { params }: Params
+): Promise<Metadata> {
   const { slug } = await params;
 
   try {
