@@ -1,12 +1,13 @@
 import { BASE_PATH } from '@/lib/config';
 import Link from 'next/link';
 
-const Layout = ({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode
-}) => (
-  <div>
+}) {
+  return (
+    <div>
     <header className="px-5 ">
       <div className="max-w-4xl mx-auto pt-5 pb-2 border-gray-100 border-b">
         <Link href="/">
@@ -38,8 +39,6 @@ const Layout = ({
         </div>
       </div>
     </footer>
-  </div >
-
-)
-
-export default Layout;
+    </div >
+  );
+}

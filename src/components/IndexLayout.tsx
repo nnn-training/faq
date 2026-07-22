@@ -8,7 +8,7 @@ type Props = {
   posts: PostData[];
 }
 
-const IndexLayout = ({ course, posts }: Props) => {
+export default function IndexLayout({ course, posts }: Props){
   let courseName = course;
   switch (course) {
     case 'intro':
@@ -66,5 +66,3 @@ const IndexLayout = ({ course, posts }: Props) => {
     </Layout>
   </>
 };
-
-export default IndexLayout;
