@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Card = ({ children, href, hover, flex }) => {
+export default function Card({ children, href, hover, flex }){
   return (
     <div className={flex ? "flex" : ""}>
       <Link href={href}>
@@ -17,5 +17,3 @@ const Card = ({ children, href, hover, flex }) => {
     </div>
   );
 };
-
-export default Card;
